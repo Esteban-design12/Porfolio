@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esteban Murcia — Portafolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">EM<span>.</span>portafolio</div>
+    <div class="nav-links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a href="#contacto" class="nav-cta">Hablemos →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="blob"></div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Ingeniería Multimedia · 9° semestre</div>
+    <h1 class="display">Esteban Murcia<br>hace <em>datos</em>, <em>modelos</em> y <em>código</em>.</h1>
+    <p class="hero-sub">Estudiante de últimos semestres explorando el cruce entre análisis de datos, machine learning, simulación 3D y desarrollo web — construyendo cosas que se pueden medir, clasificar, visualizar y usar.</p>
+
+    <div class="disciplines">
+      <button class="pill active" data-d="data"><span class="dot"></span>Análisis de Datos</button>
+      <button class="pill" data-d="ml"><span class="dot"></span>Machine Learning</button>
+      <button class="pill" data-d="3d"><span class="dot"></span>Simulación 3D</button>
+      <button class="pill" data-d="web"><span class="dot"></span>Desarrollo Web</button>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="sobre-mi">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-label">01 — Sobre mí</span>
+        <h2 class="sec-title">Tres disciplinas, una forma de pensar</h2>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Soy <strong>Esteban Murcia</strong>, estudiante de noveno semestre de Ingeniería Multimedia. Me apasiona la programación, con un enfoque particular en <strong>desarrollo web</strong> y <strong>análisis de datos</strong>, aunque siempre con curiosidad por explorar campos nuevos que amplíen mi forma de resolver problemas.</p>
+        <p>Esa curiosidad es la razón por la que este portafolio incluye proyectos tan distintos entre sí: desde sitios web y análisis de datos, hasta simulación 3D, machine learning y sistemas autónomos.</p>
+      </div>
+
+      <div class="about-skills">
+        <div class="skill-block" data-d="data">
+          <h4>Análisis de Datos</h4>
+          <div class="skill-tags">
+            <span>Python</span><span>SQL</span><span>Power BI</span><span>Pandas</span>
+          </div>
+        </div>
+        <div class="skill-block" data-d="ml">
+          <h4>Machine Learning</h4>
+          <div class="skill-tags">
+            <span>TensorFlow</span><span>Keras</span><span>Scikit-learn</span><span>OpenCV</span>
+          </div>
+        </div>
+        <div class="skill-block" data-d="3d">
+          <h4>Simulación 3D</h4>
+          <div class="skill-tags">
+            <span>Blender</span><span>Unity</span><span>Shaders</span><span>Render</span>
+          </div>
+        </div>
+        <div class="skill-block" data-d="web">
+          <h4>Desarrollo Web</h4>
+          <div class="skill-tags">
+            <span>HTML / CSS</span><span>JavaScript</span><span>React</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="proyectos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-label">02 — Proyectos</span>
+        <h2 class="sec-title">Trabajo seleccionado</h2>
+      </div>
+      <p class="sec-note">Filtra por disciplina con los botones del inicio, o haz clic en cualquier proyecto para ver el detalle.</p>
+    </div>
+
+    <div class="project-grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="section" id="contacto">
+  <div class="wrap">
+    <div class="contact-panel">
+      <h2>¿Tienes un proyecto en mente? Escríbeme y lo conversamos.</h2>
+      <div class="contact-links">
+        <a href="mailto:esteban.murcia@email.com">↳ esteban.murcia@email.com</a>
+        <a href="#">↳ linkedin.com/in/estebanmurcia</a>
+        <a href="#">↳ github.com/estebanmurcia</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+    <span>© 2026 Esteban Murcia</span>
+    <span>Diseñado y construido a mano</span>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="overlay">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+const PROJECTS = [
+  {
+    id:'p1', tag:'data', tagLabel:'Análisis de Datos',
+    title:'Dashboard de Análisis de Ventas',
+    desc:'Dashboard interactivo para analizar datos de ventas de una empresa ficticia y apoyar la toma de decisiones.',
+    role:'Limpieza, transformación y análisis exploratorio de datos',
+    tools:['Python','Pandas','NumPy','SQL','Power BI'],
+    long:'Este dashboard interactivo toma un conjunto de datos de ventas de Kaggle y lo transforma en información útil para la toma de decisiones, a través de indicadores clave (KPIs) y visualizaciones dinámicas. El proceso incluye limpieza, transformación y análisis exploratorio para identificar patrones de ventas, productos con mejor rendimiento, comportamiento de los clientes y evolución de los ingresos en el tiempo. Los objetivos son: analizar ventas por mes y año, identificar productos y ciudades con mejor desempeño, estudiar a los clientes más frecuentes y calcular KPIs como ventas totales, ganancias y crecimiento mensual.',
+    inProgress:true,
+    status:'Actualmente en etapa de limpieza, transformación y análisis exploratorio de los datos (EDA). Los siguientes pasos son implementar consultas en SQL y construir el dashboard final en Power BI.'
+  },
+  {
+    id:'p2', tag:'web', tagLabel:'Desarrollo Web',
+    title:'Sikuani — Sitio web de hotel',
+    desc:'Sitio web y rediseño de marca para Sikuani, un ecohotel ubicado en Cajicá, Cundinamarca.',
+    role:'Rediseño de marca (logo e identidad visual) y desarrollo del sitio web',
+    tools:['HTML','CSS','JavaScript'],
+    long:'Sikuani es un ecohotel ubicado en la sabana de Bogotá, en el municipio de Cajicá, Cundinamarca. El proyecto abarcó un rediseño de marca completo —logo e identidad visual— además del desarrollo del sitio web, con información de habitaciones, servicios y reservas.',
+    result:'El resultado fue una identidad de marca coherente con el enfoque ecológico del hotel, reflejada tanto en el logo como en el diseño del sitio.',
+    siteUrl:'https://esteban-design12.github.io/Sikuani/',
+    image:'sikuani-logo.svg',
+    imageBg:'#F3EFE6'
+  },
+  {
+    id:'p3', tag:'3d', tagLabel:'Simulación 3D',
+    title:'Simulación de niebla volumétrica',
+    desc:'Simulación en tiempo real de niebla, realizada como proyecto final para visualizar conceptos matemáticos.',
+    role:'Modelado del efecto, shaders y ajuste de parámetros de la simulación',
+    tools:['Blender','Unity','Shaders','Render'],
+    long:'Este proyecto se desarrolló como trabajo final con el objetivo de aplicar conceptos matemáticos y poder visualizarlos de forma tangible, en este caso mediante la simulación de niebla en un entorno 3D.',
+    result:'El resultado es una simulación funcional en tiempo real que traduce esos conceptos matemáticos en un efecto visual coherente.',
+    videoId:'JUIxK-vexNA'
+  },
+  {
+    id:'p4', tag:'web', tagLabel:'Desarrollo Web',
+    title:'Helpmet — Concientización sobre las drogas',
+    desc:'Sitio web de concientización sobre el consumo de drogas, con un enfoque equilibrado entre riesgos y contexto.',
+    role:'Diseño UX/UI y desarrollo frontend',
+    tools:['HTML','CSS','JavaScript'],
+    long:'Helpmet busca generar conciencia sobre los efectos de las drogas sin caer ni en la satanización del tema ni en ignorar sus consecuencias. La idea central es ofrecer una mirada más coherente, que muestre las dos caras de la moneda en lugar de presentarlo únicamente como algo absolutamente negativo.',
+    result:'El resultado es una plataforma que invita a una reflexión informada, ubicada en un punto medio entre la prevención y la información objetiva.',
+    siteUrl:'https://esteban-design12.github.io/Help-Met/',
+    image:'helpmet-preview.png'
+  },
+  {
+    id:'p5', tag:'web', tagLabel:'Desarrollo Web',
+    title:'PC Builder — Piezas y accesorios tecnológicos',
+    desc:'Sitio web de componentes de PC pensado para la comunidad gamer y amante de la tecnología.',
+    role:'Diseño y desarrollo frontend',
+    tools:['HTML','CSS','JavaScript'],
+    long:'PC Builder reúne las últimas tecnologías en componentes de computador a precios accesibles, con descuentos ocasionales. Fue pensado especialmente para la comunidad gamer y los amantes de la tecnología que buscan armar o actualizar su equipo.',
+    result:'El resultado es una plataforma con catálogo, comparador de productos y sistema de cuenta de usuario, lista para explorar y elegir componentes.',
+    videoId:'KJBRKWpEVI8'
+  },
+  {
+    id:'p6', tag:'ml', tagLabel:'Machine Learning',
+    title:'Sistema de navegación de drones con IA',
+    desc:'Sistema de drones autónomos pensado como solución ante las inundaciones en Córdoba a inicios de año.',
+    role:'Diseño del sistema de navegación e integración de los algoritmos de IA',
+    tools:['Python','OpenCV','TensorFlow','Dron'],
+    long:'Este proyecto surgió como una solución ante las inundaciones ocurridas en Córdoba a comienzos de año. Integra dos algoritmos como herramienta principal —MINIMAX y A*— con el objetivo de que los drones lleven recursos de forma autónoma y eficaz a las comunidades aledañas más afectadas.',
+    result:'El sistema permite planear rutas y tomar decisiones de forma automática para la entrega de recursos, reduciendo la dependencia de operación manual en zonas de difícil acceso.',
+    videoId:'HGXJSeWqC5s'
+  },
+  {
+    id:'p7', tag:'web', tagLabel:'Desarrollo Web',
+    title:'Procesador de señales de audio',
+    desc:'Dos interfaces para el procesamiento de audio: aplicación de efectos y análisis en tiempo real.',
+    role:'Diseño de la interfaz y procesamiento de la señal',
+    tools:['JavaScript','Web Audio API','Python'],
+    long:'El proyecto está compuesto por dos interfaces. La primera permite aplicar distintos efectos —reverberación, chorus y filtros pasa bajas, pasa altas y pasa banda— sobre sonidos pregrabados. La segunda permite cargar audios o grabarlos en tiempo real, visualizar su histograma y observar la variación de la señal al aplicar los distintos filtros.',
+    result:'El resultado son dos herramientas funcionales para experimentar con procesamiento de audio, tanto sobre archivos existentes como en tiempo real.',
+    videoId:'-wbBe7Fjmd4'
+  },
+];
+
+const COLORS = {
+  data: {solid:'#0891B2', soft:'#E0F5F8'},
+  ml:   {solid:'#15803D', soft:'#DCFCE7'},
+  '3d': {solid:'#EA580C', soft:'#FDE9DD'},
+  web:  {solid:'#6D28D9', soft:'#EFE7FC'}
+};
+
+function shapesFor(tag){
+  // deterministic decorative shapes per tag, no external images needed
+  const c = COLORS[tag];
+  if(tag==='web'){
+    return `<div style="position:absolute;inset:0;background:linear-gradient(135deg, ${c.soft}, #fff);">
+      <div class="shape" style="width:70px;height:70px;background:${c.solid};opacity:.85;top:20px;left:24px;border-radius:14px;transform:rotate(12deg);"></div>
+      <div class="shape" style="width:40px;height:40px;background:${c.solid};opacity:.3;bottom:18px;right:34px;border-radius:10px;"></div>
+    </div>`;
+  }
+  if(tag==='data'){
+    return `<div style="position:absolute;inset:0;background:linear-gradient(135deg, ${c.soft}, #fff);display:flex;align-items:flex-end;gap:8px;padding:24px;">
+      <div class="shape" style="position:relative;width:16px;height:40px;background:${c.solid};opacity:.5;border-radius:4px;"></div>
+      <div class="shape" style="position:relative;width:16px;height:76px;background:${c.solid};opacity:.7;border-radius:4px;"></div>
+      <div class="shape" style="position:relative;width:16px;height:54px;background:${c.solid};opacity:.6;border-radius:4px;"></div>
+      <div class="shape" style="position:relative;width:16px;height:96px;background:${c.solid};opacity:.9;border-radius:4px;"></div>
+      <div class="shape" style="position:relative;width:16px;height:64px;background:${c.solid};opacity:.6;border-radius:4px;"></div>
+    </div>`;
+  }
+  return `<div style="position:absolute;inset:0;background:linear-gradient(135deg, ${c.soft}, #fff);">
+    <div class="shape" style="width:90px;height:90px;background:${c.solid};opacity:.85;top:30px;left:40px;"></div>
+    <div class="shape" style="width:44px;height:44px;background:${c.solid};opacity:.35;bottom:14px;right:24px;"></div>
+  </div>`;
+}
+
+const grid = document.getElementById('grid');
+
+PROJECTS.forEach((p,i)=>{
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.dataset.tag = p.tag;
+  card.style.transitionDelay = (i*40)+'ms';
+  card.innerHTML = `
+    <div class="card-visual">${shapesFor(p.tag)}
+      ${p.inProgress ? `<span class="progress-badge">🚧 En construcción</span>` : ''}
+    </div>
+    <span class="card-tag"><span class="dot"></span>${p.tagLabel}</span>
+    <h3>${p.title}</h3>
+    <p>${p.desc}</p>
+    <span class="card-more">Ver detalle
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </span>
+  `;
+  card.addEventListener('click', ()=>openModal(p));
+  grid.appendChild(card);
+});
+
+// scroll reveal
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.15});
+document.querySelectorAll('.card').forEach(c=>io.observe(c));
+
+// discipline switcher
+const pills = document.querySelectorAll('.pill');
+const root = document.documentElement;
+
+function setAccent(d){
+  const c = COLORS[d];
+  root.style.setProperty('--accent', c.solid);
+  root.style.setProperty('--accent-soft', c.soft);
+  pills.forEach(p=>p.classList.toggle('active', p.dataset.d===d));
+
+  document.querySelectorAll('.card').forEach(card=>{
+    card.classList.toggle('dim', card.dataset.tag !== d && d!=='all');
+  });
+}
+
+pills.forEach(p=>{
+  p.addEventListener('click', ()=>{
+    const d = p.dataset.d;
+    const isReset = p.classList.contains('active');
+    setAccent(isReset ? currentDefault() : d);
+    if(isReset){
+      document.querySelectorAll('.card').forEach(c=>c.classList.remove('dim'));
+      pills.forEach(pp=>pp.classList.remove('active'));
+      p.classList.add('active');
+    }
+  });
+});
+function currentDefault(){ return 'data'; }
+setAccent('data');
+
+// modal
+const overlay = document.getElementById('overlay');
+const modal = document.getElementById('modal');
+
+function openModal(p){
+  const c = COLORS[p.tag];
+  const hasVideo = !!p.videoId;
+  const hasSite = !!p.siteUrl;
+  const visualHTML = hasVideo
+    ? `<div class="modal-video" id="modal-video">
+         <img src="https://img.youtube.com/vi/${p.videoId}/hqdefault.jpg" alt="Miniatura del video de ${p.title}">
+         <button class="play-btn" id="play-video" aria-label="Reproducir video">
+           <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+         </button>
+       </div>`
+    : hasSite
+    ? `<a class="modal-visual modal-link" href="${p.siteUrl}" target="_blank" rel="noopener noreferrer" aria-label="Visitar el sitio de ${p.title}">
+         ${p.image
+            ? `<img class="modal-preview-img${p.image.endsWith('.svg') ? ' is-logo' : ''}" src="${p.image}" alt="Vista previa de ${p.title}" style="${p.imageBg ? `background:${p.imageBg};` : ''}">`
+            : shapesFor(p.tag)}
+         <span class="visit-overlay">
+           <span class="visit-pill">Visitar sitio
+             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+           </span>
+         </span>
+       </a>`
+    : `<div class="modal-visual">${shapesFor(p.tag)}</div>`;
+
+  modal.innerHTML = `
+    <div class="modal-close" id="close" tabindex="0">✕</div>
+    ${visualHTML}
+    <div class="modal-tag-row">
+      <span class="modal-tag" style="color:${c.solid}">${p.tagLabel}</span>
+      ${p.inProgress ? `<span class="progress-badge">🚧 En construcción</span>` : ''}
+    </div>
+    <h3>${p.title}</h3>
+    <div class="modal-section">
+      <h5>Descripción</h5>
+      <p>${p.long}</p>
+    </div>
+    <div class="modal-section">
+      <h5>Mi rol</h5>
+      <p>${p.role}</p>
+    </div>
+    <div class="modal-section">
+      <h5>Herramientas</h5>
+      <div class="modal-tools">${p.tools.map(t=>`<span>${t}</span>`).join('')}</div>
+    </div>
+    ${p.inProgress
+      ? `<div class="modal-section">
+           <h5>Estado del proyecto</h5>
+           <p>${p.status}</p>
+         </div>`
+      : `<div class="modal-section">
+           <h5>Resultado</h5>
+           <p>${p.result}</p>
+         </div>`}
+  `;
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+  document.getElementById('close').addEventListener('click', closeModal);
+
+  if (hasVideo){
+    document.getElementById('play-video').addEventListener('click', () => {
+      const container = document.getElementById('modal-video');
+      container.innerHTML = `<iframe src="https://www.youtube.com/embed/${p.videoId}?autoplay=1" title="${p.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    });
+  }
+}
+function closeModal(){
+  overlay.classList.remove('open');
+  document.body.style.overflow='';
+}
+overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeModal(); });
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+</script>
+
+</body>
+</html>
